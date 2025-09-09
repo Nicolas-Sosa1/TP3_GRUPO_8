@@ -1,0 +1,23 @@
+# Compilados de Java
+*.class
+
+# Archivos generados por IDE
+*.log
+*.tmp
+
+# Carpetas de compilación
+/bin/
+/target/
+
+# Configuración específica de Eclipse
+.classpath
+.project
+.settings/
+
+# Configuración específica de IntelliJ (por si abrís en otro IDE)
+.idea/
+*.iml
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
