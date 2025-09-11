@@ -3,6 +3,7 @@ package dao;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 import entidad.Producto;
@@ -69,6 +70,29 @@ public class DaoProducto {
 			    }
 			    
 			    return filas;
+			}
+			
+			
+			// Modificacion con parametros
+			public int ModificarProducto(Producto producto) {
+				String query = "Update productos SET Nombre=?, Precio=?, Stock=?, IdCategoria=? where Codigo=?";
+				Connection cn = null;
+				int filas = 0;
+				
+				try {
+					cn = DriverManager.getConnection(host+dbName, user, pass);
+					PreparedStatement pst = cn.prepareStatement(query);
+					pst.setString(1, producto.getNombre());
+					pst.setFloat(2, producto.getPrecio());
+					pst.setInt(3,  producto.getStock());
+					pst.setInt(4, producto.getIdCategoria());
+					pst.setString(5, producto.getCodigo());
+					filas = pst.executeUpdate();
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
+				return filas;
 			}
 			
 }
