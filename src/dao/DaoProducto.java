@@ -4,7 +4,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import entidad.Producto;
 
@@ -93,6 +96,34 @@ public class DaoProducto {
 					e.printStackTrace();
 				}
 				return filas;
+			}
+			
+			public ArrayList<Producto> listarProducto() {
+			    ArrayList<Producto> lProductos = new ArrayList<Producto>();
+			    Connection cn = null;
+
+			    try {
+			        cn = DriverManager.getConnection(host + dbName, user, pass);
+			        String query = "SELECT * FROM Productos";
+			        Statement st = cn.createStatement();
+			        ResultSet rs = st.executeQuery(query);
+
+			        while (rs.next()) {
+			            Producto p = new Producto();
+			            p.setCodigo(rs.getString("Codigo"));
+			            p.setNombre(rs.getString("Nombre"));
+			            p.setPrecio(rs.getFloat("Precio"));
+			            p.setStock(rs.getInt("Stock"));
+			            p.setIdCategoria(rs.getInt("IdCategoria"));
+
+			            lProductos.add(p);
+			        }
+
+			    } catch (Exception e) {
+			        e.printStackTrace();
+			    } 
+			    
+			    return lProductos;
 			}
 			
 }
