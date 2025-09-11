@@ -50,4 +50,28 @@ public class DaoProducto {
 					e.printStackTrace();
 				}
 			}
+			
+			
+			public int eliminarProducto(Producto producto) {
+			    
+				String query = "DELETE FROM Productos WHERE Codigo = '" + producto.getCodigo() + "'";
+			    
+			    Connection cn = null;
+			    int filas = 0;
+			    
+			    try {
+			        cn = DriverManager.getConnection(host + dbName, user, pass);
+			        Statement st = cn.createStatement();
+			        filas = st.executeUpdate(query);
+			    }
+			    catch(Exception e){
+			        e.printStackTrace();
+			    }
+			    
+			    return filas;
+			}
+			
 }
+
+
+
