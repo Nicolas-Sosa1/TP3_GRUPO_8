@@ -1,5 +1,7 @@
 package main;
+import java.util.ArrayList;
 
+//grupo
 import dao.DaoCategoria;
 import dao.DaoProducto;
 import entidad.Categoria;
@@ -69,5 +71,18 @@ public class Principal {
 			System.out.println("No se pudo agregar el Producto");
 		}
 		
+		// Listar Productos
+		
+		DaoProducto productoDaoListado = new DaoProducto();
+		
+	    ArrayList<Producto> listaP = productoDaoListado.listarProducto();
+	    
+	    System.out.println("Cantidad: " + listaP.size());
+	    
+	    for (Producto c : listaP) {
+	       
+	    	System.out.println(c); 
+	    }
+	    
 	}
 }
