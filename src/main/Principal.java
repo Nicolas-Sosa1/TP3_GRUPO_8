@@ -11,6 +11,7 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		
+		
 		DaoCategoria DaoCategoria = new DaoCategoria();
 		Categoria categoria = new Categoria("categoria ejemplo");
 		
@@ -51,7 +52,7 @@ public class Principal {
 	    } else {
 	        System.out.println("No se pudo modificar la categoría");
 	    } 
-	    
+	    /*
 	    //AGREGAR PRODUCTO
 		DaoProducto productoDao = new DaoProducto();
 		
@@ -70,12 +71,24 @@ public class Principal {
 		else {
 			System.out.println("No se pudo agregar el Producto");
 		}
-		
+		*/
 		// Listar Productos
 		
-		DaoProducto productoDaoListado = new DaoProducto();
+		DaoProducto productoDao = new DaoProducto();
 		
-	    ArrayList<Producto> listaP = productoDaoListado.listarProducto();
+		Producto producto1 = new Producto("1", "Laptop", 120050, 50, 1);
+		Producto producto2 = new Producto("2", "Mouse", 2500, 200, 1 );
+		Producto producto3 = new Producto("3", "Keyboard", 7599, 150, 2);
+		Producto producto4 = new Producto("4", "Monitor", 35000, 75, 3);
+		Producto producto5 = new Producto("5", "Webcam", 5025, 100, 4);
+
+		productoDao.AgregarProducto(producto1);
+	    productoDao.AgregarProducto(producto2);
+	    productoDao.AgregarProducto(producto3);
+	    productoDao.AgregarProducto(producto4);
+	    productoDao.AgregarProducto(producto5);
+		
+	    ArrayList<Producto> listaP = productoDao.listarProducto();
 	    
 	    System.out.println("Cantidad: " + listaP.size());
 	    
