@@ -5,6 +5,13 @@ public class Categoria {
 	// Atributos
 	private int id;
 	private String nombre;
+	
+	public Categoria() 
+	{}
+	
+	public Categoria(String nombre) {
+		this.nombre = nombre;
+	}
 		
 	// Getters y setters
 	public int getId() {
