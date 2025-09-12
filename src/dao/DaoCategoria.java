@@ -69,7 +69,7 @@ public class DaoCategoria {
 			pS.setString(1, categoria.getNombre());
 			pS.setInt(2, categoria.getId());
 			pS.setInt(3, categoria.getId());
-			pS.executeUpdate();
+			filas = pS.executeUpdate();
 		}
 		catch(Exception e) {
 			e.printStackTrace();
