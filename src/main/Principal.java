@@ -76,17 +76,22 @@ public class Principal {
 		
 		DaoProducto productoDao = new DaoProducto();
 		
-		Producto producto1 = new Producto("1", "Laptop", 120050, 50, 1);
-		Producto producto2 = new Producto("2", "Mouse", 2500, 200, 1 );
-		Producto producto3 = new Producto("3", "Keyboard", 7599, 150, 2);
-		Producto producto4 = new Producto("4", "Monitor", 35000, 75, 3);
-		Producto producto5 = new Producto("5", "Webcam", 5025, 100, 4);
-
-		productoDao.AgregarProducto(producto1);
-	    productoDao.AgregarProducto(producto2);
-	    productoDao.AgregarProducto(producto3);
-	    productoDao.AgregarProducto(producto4);
-	    productoDao.AgregarProducto(producto5);
+		ArrayList<Producto> cargarProductos = new ArrayList<Producto>();
+		
+		cargarProductos.add(new Producto("1", "Laptop", 120050, 50, 1));
+		cargarProductos.add(new Producto("2", "Mouse", 2500, 200, 1 ));
+		cargarProductos.add(new Producto("3", "Keyboard", 7599, 150, 2));
+		cargarProductos.add(new Producto("4", "Monitor", 35000, 75, 3));
+		cargarProductos.add(new Producto("5", "Webcam", 5025, 100, 4));
+		cargarProductos.add(new Producto("6", "Printer", 10000, 150, 4));
+		cargarProductos.add(new Producto("7", "Headphones", 7000, 80, 1));
+		cargarProductos.add(new Producto("8", "Microphone", 5000, 60, 1));
+		cargarProductos.add(new Producto("9", "joystick", 4500, 150, 2));
+		cargarProductos.add(new Producto("10", "Tablet", 5025, 100, 3));
+		
+		for (Producto p : cargarProductos) {
+		    productoDao.AgregarProducto(p);
+		}
 		
 	    ArrayList<Producto> listaP = productoDao.listarProducto();
 	    
