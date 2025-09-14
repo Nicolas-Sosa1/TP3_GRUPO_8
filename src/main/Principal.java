@@ -11,7 +11,7 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		
-		
+		/*
 		DaoCategoria DaoCategoria = new DaoCategoria();
 		Categoria categoria = new Categoria("categoria ejemplo");
 		
@@ -52,6 +52,7 @@ public class Principal {
 	    } else {
 	        System.out.println("No se pudo modificar la categoría");
 	    } 
+	    */
 	    /*
 	    //AGREGAR PRODUCTO
 		DaoProducto productoDao = new DaoProducto();
@@ -73,7 +74,7 @@ public class Principal {
 		}
 		*/
 		// Listar Productos
-		
+		/*
 		DaoProducto productoDao = new DaoProducto();
 		
 		ArrayList<Producto> cargarProductos = new ArrayList<Producto>();
@@ -101,6 +102,73 @@ public class Principal {
 	       
 	    	System.out.println(c); 
 	    }
+	    */
+	    // MODIFICAR UN PRODUCTO
+		// Agrego unas categorias para probar modificacion
+		
+		DaoCategoria daoCat = new DaoCategoria();		
+		
+		Categoria cat1 = new Categoria();
+		cat1.setNombre("Electronica");
+		daoCat.AgregarCategoria(cat1);
+		
+		Categoria cat2 = new Categoria();
+		cat2.setNombre("Hogar");
+		daoCat.AgregarCategoria(cat2);
+		
+		Categoria cat3 = new Categoria();
+		cat3.setNombre("Ropa");
+		daoCat.AgregarCategoria(cat3);
+		
+		Categoria cat4 = new Categoria();
+		cat4.setNombre("Alimentos");
+		daoCat.AgregarCategoria(cat4);
+			
+		// Creo 10 productos y lo agregos para modificar
+		
+		DaoProducto daoPr = new DaoProducto();
+		
+	    Producto pr1 = new Producto("P1", "Samsung A54", 250000, 10, 1);
+	    Producto pr2 = new Producto("P2", "Televisor 50", 350000, 4, 1);
+	    Producto pr3 = new Producto("P3", "Notebook Lenovo", 300000, 6, 1);
+	    Producto pr4 = new Producto("P4", "Cocina", 260000, 9, 2);
+	    Producto pr5 = new Producto("P5", "Zapatillas Nike", 180000, 20, 3);
+	    
+	    Producto pr6 = new Producto("P6", "Camiseta Adidas", 100000, 22, 3);
+	    Producto pr7 = new Producto("P7", "Heladera", 400000, 4, 2);
+	    Producto pr8 = new Producto("P8", "Paquete fideos", 1200, 100, 4);
+	    Producto pr9 = new Producto("P9", "Yogurt", 2200, 20, 4);
+	    Producto pr10 = new Producto("P10", "Cama 2 plazas", 170000, 4, 2);
+	    
+	    daoPr.AgregarProductoConSP(pr1);
+	    daoPr.AgregarProductoConSP(pr2);
+	    daoPr.AgregarProductoConSP(pr3);
+	    daoPr.AgregarProductoConSP(pr4);
+	    daoPr.AgregarProductoConSP(pr5);
+	    
+	    daoPr.AgregarProductoConSP(pr6);
+	    daoPr.AgregarProductoConSP(pr7);
+	    daoPr.AgregarProductoConSP(pr8);
+	    daoPr.AgregarProductoConSP(pr9);
+	    daoPr.AgregarProductoConSP(pr10);
+	    
+	 	// Listado de recien agregados/modificados
+	 	ArrayList<Producto> lProductos = daoPr.listarProducto();
+	 	System.out.println("Lista de todos los productos:");
+	 	for(Producto pr : lProductos) {
+	 		System.out.println(pr);
+	 	}
+	 	
+	 	Producto prM1 = new Producto("P1", "Samsung S10", 300000, 4, 2);
+	 	Producto prM2 = new Producto("P5", "Zapatillas Vans", 200000, 8, 2);
+	 	Producto prM3 = new Producto("P8", "Queso cremoso", 4000, 20, 3);
+	 	
+	 	daoPr.ModificarProducto(prM1);
+	 	daoPr.ModificarProducto(prM2);
+	 	daoPr.ModificarProducto(prM3);
+	 	
+	 	
+	    
 	    
 	}
 }
