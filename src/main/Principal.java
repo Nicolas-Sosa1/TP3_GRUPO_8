@@ -11,10 +11,12 @@ public class Principal {
 	
 	public static void main(String[] args) {
 		
-		/*
-		DaoCategoria DaoCategoria = new DaoCategoria();
-		Categoria categoria = new Categoria("categoria ejemplo");
 		
+		DaoCategoria DaoCategoria = new DaoCategoria();
+		DaoProducto productoDao = new DaoProducto();
+		
+		Categoria categoria = new Categoria("categoria ejemplo");
+				
 		int filas = DaoCategoria.AgregarCategoria(categoria);
 		if(filas == 1) {
 			System.out.println("Nueva categoria: " + categoria.getNombre());
@@ -52,11 +54,10 @@ public class Principal {
 	    } else {
 	        System.out.println("No se pudo modificar la categoría");
 	    } 
-	    */
-	    /*
+	    
+
+	    
 	    //AGREGAR PRODUCTO
-		DaoProducto productoDao = new DaoProducto();
-		
 		Producto producto1 = new Producto();
 		producto1.setCodigo("A5");
 		producto1.setIdCategoria(3);
@@ -72,11 +73,9 @@ public class Principal {
 		else {
 			System.out.println("No se pudo agregar el Producto");
 		}
-		*/
-		// Listar Productos
-		/*
-		DaoProducto productoDao = new DaoProducto();
 		
+		// Listar Productos
+				
 		ArrayList<Producto> cargarProductos = new ArrayList<Producto>();
 		
 		cargarProductos.add(new Producto("1", "Laptop", 120050, 50, 1));
@@ -102,7 +101,7 @@ public class Principal {
 	       
 	    	System.out.println(c); 
 	    }
-	    */
+	    
 	    // MODIFICAR UN PRODUCTO
 		// Agrego unas categorias para probar modificacion
 		
@@ -167,8 +166,18 @@ public class Principal {
 	 	daoPr.ModificarProducto(prM2);
 	 	daoPr.ModificarProducto(prM3);
 	 	
-	 	
-	    
+		//BAJA PRODUCTO
+	 	Producto productoEliminar = new Producto();
+	 	productoEliminar.setCodigo("8");
+
+	 	int filasEliminarPro = productoDao.eliminarProducto(productoEliminar);
+
+	 	if (filasEliminarPro == 1) {
+	 	    System.out.println("Producto eliminado: Código " + productoEliminar.getCodigo());
+	 	} else {
+	 	    System.out.println("No se pudo eliminar el producto");
+	 	}
+	 
 	    
 	}
 }
